@@ -12,5 +12,5 @@ class Solution(object):
 
             return stack
         
-        return True if check(s)==check(t) else False
+        return check(s)==check(t)
         

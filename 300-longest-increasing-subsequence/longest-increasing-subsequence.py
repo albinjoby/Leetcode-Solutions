@@ -1,8 +1,5 @@
 class Solution(object):
     def lengthOfLIS(self, nums):
-        if len(nums) == 1:
-            return 1
-
         length = len(nums)
         res = [1]*length
         count = 1

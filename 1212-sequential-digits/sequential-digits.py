@@ -21,7 +21,6 @@ class Solution(object):
                 res.append(n)
             ones = n % 10
             if ones < 9:
-                queue.append(n * 10 + (ones+1))
+                n = n * 10 + (ones + 1)
+                queue.append(n)
         return res
-                
-                

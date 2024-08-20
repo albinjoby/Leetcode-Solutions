@@ -1,6 +1,6 @@
 class Solution(object):
     def sequentialDigits(self, low, high):
-        vals = [1,2,3,4,5,6,7,8,9]
+        vals = range(1,10)
         lst = []
         for i in range(len(vals)):
             for j in range(i+1,len(vals)+1):

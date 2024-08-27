@@ -1,16 +1,14 @@
-class Solution(object):
-    def check(self,s):
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        def check(string):
             stack = []
-            for i in s:
-                if i == '#' and not stack:
-                    continue
-                elif i =='#':
-                    stack.pop(-1)
+            string = list(string)
+            for letter in string:
+                if letter == '#':
+                    if stack:
+                        stack.pop()
                 else:
-                    stack.append(i)
-
+                    stack.append(letter)
             return stack
 
-    def backspaceCompare(self, s, t):
-        return self.check(s)==self.check(t)
-        
+        return check(s)==check(t)

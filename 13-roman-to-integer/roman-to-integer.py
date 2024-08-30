@@ -10,13 +10,12 @@ class Solution:
             'M' : 1000
         }
         sum = 0
-        for i in range(0,len(s)-1):
-            if dic[s[i]] < dic[s[i+1]]:
+        for i in range(len(s)):
+            if i<len(s)-1 and dic[s[i]] < dic[s[i+1]]:
                 sum -= dic[s[i]]
             else:
                 sum += dic[s[i]]
 
-        sum += dic[s[len(s)-1]]
         
         return sum
             

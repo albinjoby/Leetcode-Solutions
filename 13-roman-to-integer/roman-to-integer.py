@@ -15,7 +15,6 @@ class Solution:
                 sum -= dic[s[i]]
             else:
                 sum += dic[s[i]]
-
         
         return sum
             

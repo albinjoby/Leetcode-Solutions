@@ -23,7 +23,7 @@ I am using [LeetSync](https://github.com/synleets/leetsync) to automatically syn
 1. **Clone the Repository**:  
    Clone the repository to your local machine using the command:
    ```
-   git clone https://github.com/albinjoby/Leetcode-Solutions.git
+   git clone https://github.com/YOUR-NAME/Leetcode-Solutions.git
    ```
 
 2. **Navigate to a Problem**:  

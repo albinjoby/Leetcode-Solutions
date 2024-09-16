@@ -3,7 +3,6 @@ class Solution:
         for i in range(len(timePoints)):
             h,m = map(int,timePoints[i].split(":"))
             timePoints[i] = m+(h*60)
-        print(timePoints)
 
         timePoints.sort()
         res = 1440 - timePoints[-1] + timePoints[0]

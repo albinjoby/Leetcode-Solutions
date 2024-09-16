@@ -8,6 +8,7 @@ class Solution:
             timePoints[i] = m+(h*60)
 
         timePoints.sort()
+        
         res = 1440 - timePoints[-1] + timePoints[0]
         for i in range(1,len(timePoints)):
             diff = timePoints[i]-timePoints[i-1]

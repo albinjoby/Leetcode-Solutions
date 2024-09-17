@@ -1,9 +1,7 @@
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
         dic = {}
-        s1 = s1.split(' ')
-        s2 = s2.split(' ')
-        for letter in s1+s2:
+        for letter in s1.split(' ') + s2.split(' '):
             if letter in dic:
                 dic[letter] += 1
             else:

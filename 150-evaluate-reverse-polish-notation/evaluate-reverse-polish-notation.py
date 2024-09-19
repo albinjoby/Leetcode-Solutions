@@ -1,7 +1,7 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
-        operands = '+-*/'
+        operands = set(['+','-','*','/'])
         
         for symbol in tokens:
             if symbol in operands:

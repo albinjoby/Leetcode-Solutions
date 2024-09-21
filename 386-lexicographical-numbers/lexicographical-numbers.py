@@ -1,8 +1,7 @@
 class Solution:
     def lexicalOrder(self, n: int) -> List[int]:
         
-        check = lambda a,b : 1 if str(a) > str(b) else -1
-        return sorted([i for i in range(1,n+1)],key = cmp_to_key(check))
+        return sorted([i for i in range(1,n+1)],key = cmp_to_key(lambda a,b : 1 if str(a) > str(b) else -1))
 
         # res = []
         # def check(num):

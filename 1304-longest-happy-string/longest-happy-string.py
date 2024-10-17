@@ -2,7 +2,7 @@ class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         res = ""
         heap = []
-
+        
         for count, char in [(-a,"a"),(-b,"b"),(-c,"c")]:
             if count != 0:
                 heapq.heappush(heap,(count, char))

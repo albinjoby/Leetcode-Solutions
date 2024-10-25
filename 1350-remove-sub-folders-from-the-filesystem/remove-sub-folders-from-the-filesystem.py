@@ -11,4 +11,3 @@ class Solution:
                     break
 
         return res
-

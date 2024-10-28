@@ -2,7 +2,7 @@ class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
         seen = set(nums)
         longest_streak = 0
-        for num in nums:
+        for num in seen:
             streak = 1
             while num * num in seen:
                 num = num * num

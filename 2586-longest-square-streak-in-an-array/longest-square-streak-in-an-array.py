@@ -1,13 +1,12 @@
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
         seen = set(nums)
-
-        longes_streak = 1
+        longest_streak = 0
         for num in nums:
             streak = 1
             while num * num in seen:
-                streak += 1
                 num = num * num
-            longes_streak = max(longes_streak, streak)  
-
-        return -1 if longes_streak == 1 else longes_streak
+                streak += 1
+            longest_streak = max(longest_streak, streak)
+        
+        return -1 if longest_streak == 1 else longest_streak

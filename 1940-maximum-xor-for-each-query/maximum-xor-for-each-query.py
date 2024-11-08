@@ -5,8 +5,8 @@ class Solution:
             xor ^= num
 
         mask = (2**maximumBit) - 1
-        res = []
 
+        res = []
         for num in reversed(nums):
             res.append(xor ^ mask)
             xor ^= num

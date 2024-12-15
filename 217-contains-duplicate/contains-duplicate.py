@@ -1,8 +1,10 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        counter = Counter(nums)
-        for num in counter:
-            if counter[num] > 1:
+        dic = {}
+        for num in nums:
+            if num in dic:
                 return True
+            else:
+                dic[num] = 1
 
         return False

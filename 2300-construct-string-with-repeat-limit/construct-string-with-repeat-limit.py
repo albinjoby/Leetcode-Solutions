@@ -21,5 +21,7 @@ class Solution(object):
                 if nxt_cnt > 1:
                     heapq.heappush(max_heap, (-ord(nxt_char), nxt_cnt - 1))
                 heapq.heappush(max_heap, (-ord(char), cnt - cur_cnt))
+            else:
+                continue
 
         return "".join(res)

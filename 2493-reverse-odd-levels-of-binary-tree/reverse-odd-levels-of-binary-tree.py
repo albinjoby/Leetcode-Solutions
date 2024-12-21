@@ -6,32 +6,25 @@
 #         self.right = right
 class Solution(object):
     def reverseOddLevels(self, root):
-        if not root:
-            return root
-
         q = deque([root])
         level = 0
 
         while q:
-            size = len(q)
-            current_level = []
+            if level % 2 != 0:
+                l, r = 0, len(q)-1
+                while l < r:
+                    q[l].val,q[r].val = q[r].val,q[l].val
+                    l += 1
+                    r -= 1
 
-            for _ in range(size):
+            for _ in range(len(q)):
                 node = q.popleft()
-                current_level.append(node)
-
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
 
-            if level % 2 == 1:
-                values = [node.val for node in current_level]
-                values.reverse()
-
-                for i, node in enumerate(current_level):
-                    node.val = values[i]
-
             level += 1
 
+    
         return root

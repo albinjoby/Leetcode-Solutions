@@ -6,13 +6,13 @@
 #         self.right = right
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
-        self.res = 0
+        arr = []
         def bst(root):
             if not root:
                 return
             
             if low <= root.val <= high:
-                self.res += root.val
+                arr.append(root.val)
             
             if root.val >= low:
                 bst(root.left)
@@ -20,4 +20,4 @@ class Solution:
                 bst(root.right)
 
         bst(root)
-        return self.res
+        return sum(arr)

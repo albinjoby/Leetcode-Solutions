@@ -16,5 +16,4 @@ class Solution:
             else:
                 res.append(cnt[r] - cnt[l-1])
 
-        print(res)
         return res

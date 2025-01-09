@@ -1,22 +1,15 @@
-class Solution(object):
-    def topKFrequent(self, nums, k):
-        count = {}
-        res = [[] for i in range(len(nums)+1)]
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        arr = [[] for i in range(len(nums)+1)]
+        counter = Counter(nums)
 
-        for num in nums:
-            if num in count:
-                count[num] += 1
-            else:
-                count[num] = 1
+        for key, value in counter.items():
+            arr[value].append(key)
 
-        for num,cnt in count.items():
-            res[cnt].append(num)
-        
-        lst = []
-        for i in range(len(res)-1,0,-1):
-            for n in res[i]:
-                lst.append(n)
-                if len(lst) == k:
-                    return lst
-        
-        return lst
+        res = []
+        for num_set in reversed(arr):
+            while num_set and k:
+                res.append(num_set.pop())
+                k -= 1
+
+        return res

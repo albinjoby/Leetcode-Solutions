@@ -1,5 +1,8 @@
 class Solution:
     def canBeValid(self, s: str, lock: str) -> bool:
+        if len(s)%2 != 0:
+            return False
+
         locked = []
         unlocked = []
 

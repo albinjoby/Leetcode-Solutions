@@ -4,11 +4,9 @@ class Solution:
         res = []
         set_A, set_B  = set(),set()
         for i in range(len(A)):
-            if A[i] == B[i]:
-                count += 1
-            elif A[i] in set_B and B[i] in set_A:
+            if A[i] in set_B and B[i] in set_A:
                 count += 2
-            elif A[i] in set_B or B[i] in set_A:
+            elif (A[i] in set_B or B[i] in set_A) or A[i] == B[i]:
                 count += 1
             res.append(count)
             set_A.add(A[i])

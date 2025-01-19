@@ -10,9 +10,9 @@ class Solution:
         for r in range(k,len(s)):
             if s[l] in vowels:
                 count -= 1
+            l += 1 
             if s[r] in vowels:
                 count += 1
-            l += 1
             max_count = max(max_count, count)
 
         return max_count

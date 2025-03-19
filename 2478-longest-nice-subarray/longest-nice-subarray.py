@@ -7,6 +7,6 @@ class Solution:
             while count & nums[r]:
                 count ^= nums[l]
                 l += 1
-            res = max(res, r-l+1)
             count |= nums[r]
+            res = max(res, r-l+1)
         return res

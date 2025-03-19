@@ -12,6 +12,4 @@ class Solution:
             c += 1
             l += 1
 
-        if nums.count(0) == 0:
-            return count
-        return -1
+        return count if nums[-1] == 1 and nums[-2] == 1 else -1

@@ -5,7 +5,6 @@ class Solution:
         for idx, num in enumerate(nums):
             if num in counter:
                 for i in counter[num]:
-                    print(idx, i, (idx * i) % k == 0)
                     if (idx * i) % k == 0:
                         count += 1 
                 counter[num].append(idx)

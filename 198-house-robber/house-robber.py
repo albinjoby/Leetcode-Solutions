@@ -1,15 +1,9 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        memo = {}
-        def check(arr):
-            if not arr:
-                return 0
-            if len(arr) == 1:
-                return arr[0]
-            inputs = tuple(arr)
-            if inputs in memo:
-                return memo[inputs]
-            memo[inputs] = max(arr[0] + check(arr[2:]), check(arr[1:]) )
-            return memo[inputs]
+        rob1, rob2 = 0, 0
 
-        return check(nums)
+        for n in nums:
+            temp = max(n + rob1, rob2)
+            rob1 = rob2
+            rob2 = temp
+        return rob2

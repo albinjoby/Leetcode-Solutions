@@ -6,15 +6,11 @@ class Solution:
         if n == 2:
             return max(nums[0],nums[1])
         
-        cache = {
-            0: nums[0],
-            1: max(nums[0],nums[1])
-        }
+        dp = [0] * n
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
 
-        def check(i):
-            if i in cache:
-                return cache[i]
-            cache[i] = max(nums[i] + check(i-2) , check(i-1))
-            return cache[i]
-
-        return check(n-1)
+        for i in range(2,n):
+            dp[i] = max(nums[i] + dp[i-2], dp[i-1])
+        
+        return dp[n-1]

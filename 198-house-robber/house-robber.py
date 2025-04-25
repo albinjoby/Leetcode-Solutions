@@ -1,18 +1,20 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        cache = {}
-        def check(arr):
-            if not arr:
-                return 0
-            
-            if len(arr) == 1:
-                return arr[0]
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        if n == 2:
+            return max(nums[0],nums[1])
+        
+        cache = {
+            0: nums[0],
+            1: max(nums[0],nums[1])
+        }
 
-            input = tuple(arr)
-            if input in cache:
-                return cache[input]
+        def check(i):
+            if i in cache:
+                return cache[i]
+            cache[i] = max(nums[i] + check(i-2) , check(i-1))
+            return cache[i]
 
-            cache[input] = max(arr[0] + check(arr[2:]), check(arr[1:]))
-            return cache[input]
-
-        return check(nums)
+        return check(n-1)

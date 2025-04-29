@@ -7,11 +7,7 @@ class Solution:
             if nums[r] == val:
                 count += 1
 
-            while count > k:
-                count -= 1 if nums[l] == val else 0
-                l += 1
-
-            while count == k and nums[l] != val:
+            while count > k or (count == k and nums[l] != val):
                 count -= 1 if nums[l] == val else 0
                 l += 1
             

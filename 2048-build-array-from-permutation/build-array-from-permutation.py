@@ -4,6 +4,6 @@ class Solution:
         res = [0] * n
         for i in range(n):
             if 0 <= i < n:
-                res[i] = nums[nums[i]]
+                res[i]  = nums[nums[i]]
 
         return res

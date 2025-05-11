@@ -1,10 +1,9 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        cache = {0:1,1:1}
-        def fibo(n):
-            if n in cache:
-                return cache[n]
-            cache[n] = fibo(n-1) + fibo(n-2)
-            return cache[n]
-        
-        return fibo(n)
+        dp = [0] * (n+2)
+        dp[1] = 1
+        i = 2
+        while i < len(dp):
+            dp[i] = dp[i-1] + dp[i-2]
+            i += 1
+        return dp[-1]

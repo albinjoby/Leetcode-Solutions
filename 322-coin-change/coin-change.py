@@ -1,23 +1,21 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        cache = {0:0}
+        if amount == 0:
+            return 0
+
+        dp = [float('inf')] * (amount+1)
+        dp[0] = 0
         coins.sort()
-
-        def top_down(money):
-            if money in cache:
-                return cache[money]
-            
-            res = float('inf')
+        for i in range(1,len(dp)):
+            target = i
             for coin in coins:
-                diff = money - coin
-                if diff < 0:
-                    break
-
-                res = min(res,1+top_down(diff))
-            
-            cache[money] = res
-            return res
-
-        res = top_down(amount)
-        return -1 if res == float('inf') else res
-                
+                if target == coin:
+                    dp[i] = 1
+                else:
+                    if target - coin < 0:
+                        break
+                    else:
+                        dp[i] = min(1 + dp[i-coin], dp[i])
+        
+        print(dp)
+        return dp[-1] if dp[-1] != float('inf') else -1

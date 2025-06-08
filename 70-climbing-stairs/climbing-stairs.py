@@ -1,10 +1,9 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        dp1 = 0
-        dp2 = 1
+        a, b = 0, 1
         while n:
-            temp = dp1 + dp2
-            dp1 = dp2
-            dp2 = temp
+            temp = b
+            b = a + b
+            a = temp
             n -= 1
-        return dp2
+        return b

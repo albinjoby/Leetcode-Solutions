@@ -8,7 +8,7 @@ class NumArray:
         if (left,right+1) in self.cache:
             return self.cache[(left,right+1)]
     
-        val = sum([self.nums[x] for x in range(left,right+1)])
+        val = sum(self.nums[left:right+1])
         self.cache[(left,right+1)] = val
         return val
 

@@ -5,7 +5,7 @@ class Solution:
         res.add(s)
         s = list(s)
         def backtrack(i):
-            if i >= n:
+            if i == n:
                 return 
 
             if s[i].isalpha():

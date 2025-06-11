@@ -1,8 +1,8 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        temp = s
         n = len(s)
         res = set()
+        res.add(s)
         s = list(s)
         def backtrack(i):
             if i >= n:
@@ -19,4 +19,4 @@ class Solution:
                 backtrack(i+1)
             
         backtrack(0)
-        return list(res) if res else [temp]
+        return list(res)

@@ -9,5 +9,7 @@ class Solution:
                 backtrack(i+1,path)
                 path.pop()
 
+            return 
+
         backtrack(0,[])
         return res

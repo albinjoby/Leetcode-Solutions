@@ -3,7 +3,6 @@ class Solution:
         min_val = nums[0]
         res = -1
         for r in range(1,len(nums)):
-            print(min_val,nums[r],res)
             res = max(res, nums[r] - min_val)
             if nums[r] < min_val:
                 min_val = nums[r]

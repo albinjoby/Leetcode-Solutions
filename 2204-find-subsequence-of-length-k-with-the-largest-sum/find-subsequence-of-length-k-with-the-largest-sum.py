@@ -2,10 +2,6 @@ class Solution:
     def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
         heap = [(-nums[i],i) for i in range(len(nums))]
         heapq.heapify(heap)
-        res = []
-        while k:
-            res.append(heapq.heappop(heap))
-            k -= 1
-        
+        res = [heapq.heappop(heap) for _ in range(k)]
         res.sort(key=lambda x: x[1])
-        return [-item[0] for item in res]
+        return [-i for i,_ in res]

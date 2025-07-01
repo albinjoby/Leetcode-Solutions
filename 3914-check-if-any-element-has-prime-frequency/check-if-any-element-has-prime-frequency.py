@@ -16,7 +16,6 @@ class Solution:
             return True
 
         counter = Counter(nums)
-        print(counter)
         for num in counter:
             if isPrime(counter[num]):
                 return True

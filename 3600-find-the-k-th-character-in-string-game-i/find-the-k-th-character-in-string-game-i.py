@@ -1,10 +1,10 @@
 class Solution:
     def kthCharacter(self, k: int) -> str:
         def helper(string):
-            res = string
+            res = list(string)
             for s in string:
-                res += chr(ord(s)+1) if ord(s) < 112 else "a"
-            return res
+                res.append(chr(ord(s)+1) if ord(s) < 112 else "a")
+            return ''.join(res)
         
         string = "a"
         while len(string) < k:

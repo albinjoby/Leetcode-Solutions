@@ -4,7 +4,7 @@ class Solution:
         res, count = 0, 0
         for n in nums:
             if n-1 not in nums:
-                l = 0
+                l = 1
                 while n+l in nums:
                     l += 1
                 res = max(res,l)

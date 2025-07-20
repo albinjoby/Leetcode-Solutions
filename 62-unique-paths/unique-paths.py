@@ -1,17 +1,14 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         cache = {}
-        def check(m,n):
-            if (m,n) in cache or (n,m) in cache:
-                if (m,n) in cache:
-                    return cache[(m,n)]
-                else:
-                    return cache[(n,m)]
-            if m == 0 or n == 0:
+        def dfs(i,j):
+            if (i,j) in cache:
+                return cache[(i,j)]
+            if i == 0 or j == 0:
                 return 0
-            if m == 1 and n == 1:
+            if i == 1 and j == 1:
                 return 1
-            cache[(m,n)] = check(m-1,n)+check(m,n-1)
-            return cache[(m,n)]
+            cache[(i,j)] = dfs(i-1,j) + dfs(i,j-1)
+            return cache[(i,j)]
 
-        return check(m,n)
+        return dfs(m,n)

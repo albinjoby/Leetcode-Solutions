@@ -1,11 +1,9 @@
 class Solution:
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
-        asteroids.sort()
-        for asteroid in asteroids:
-            if mass < asteroid:
+        heapq.heapify(asteroids)
+        for _ in range(len(asteroids)):
+            val = heapq.heappop(asteroids)
+            if val > mass:
                 return False
-
-            mass += asteroid
-            
+            mass += val
         return True
-            

@@ -1,5 +1,7 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
+        # bottom up with tabulation
+
         dp = []
         for _ in range(m):
             dp.append([0] * n)
@@ -10,9 +12,10 @@ class Solution:
                 if i == 0 and j == 0: continue
                 dp[i][j] = (dp[i-1][j] if i > 0 else 0) + (dp[i][j-1] if j > 0 else 0)
 
-        print(dp)
         return dp[m-1][n-1]
 
+        # top down with memorization
+                
         # cache = {}
         # def dfs(i,j):
         #     if (i,j) in cache:

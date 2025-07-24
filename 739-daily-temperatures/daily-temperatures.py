@@ -4,11 +4,8 @@ class Solution:
         res = [0] * len(temperatures)
         i = 0
         for idx,temp in enumerate(temperatures):
-            stack.append([temp,idx])
-            while len(stack) > 1 and stack[-2][0] < stack[-1][0]:
-                target = stack[-2][1]
-                diff = stack[-1][1] - target
-                stack[-2] = stack[-1]
+            while stack and stack[-1][0] < temp:
+                res[stack[-1][1]] = idx - stack[-1][1]
                 stack.pop()
-                res[target] = diff
+            stack.append([temp,idx])
         return res

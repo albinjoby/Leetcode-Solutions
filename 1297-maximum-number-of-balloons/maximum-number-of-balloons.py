@@ -1,20 +1,10 @@
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
-        dic = {}
-        for letter in text:
-            if letter in dic:
-                dic[letter] += 1
-            else:
-                dic[letter] = 1
-
-        count = 0
+        res = 0
+        counter = Counter(text)
         while True:
-            for letter in "balloon":
-                if letter in dic and dic[letter] > 0:
-                    dic[letter] -= 1
-                else:
-                    return count
-            count += 1
-
-
-        
+            for l in "balloon":
+                if l not in counter or counter[l] < 1:
+                    return res
+                counter[l] -= 1
+            res += 1

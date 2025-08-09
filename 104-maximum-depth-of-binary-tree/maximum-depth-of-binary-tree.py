@@ -6,9 +6,28 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        def dfs(root,count):
-            if not root:
-                return count
-            return 1+max(dfs(root.left,count),dfs(root.right,count))
+        # def dfs(root):
+        #     if not root:
+        #         return 0
+        #     return 1 + max(dfs(root.left),dfs(root.right))
         
-        return dfs(root,0)
+        # return dfs(root)
+
+        from collections import deque
+        def bfs(root):
+            if not root:
+                return 0
+
+            lvl = 0
+            q = deque([root])
+            while q:
+                for i in range(len(q)):
+                    node = q.popleft()
+                    if node.left:
+                        q.append(node.left)
+                    if node.right:
+                        q.append(node.right)
+                lvl += 1
+            return lvl
+        
+        return bfs(root)

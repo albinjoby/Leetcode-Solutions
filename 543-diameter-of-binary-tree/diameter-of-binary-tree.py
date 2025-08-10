@@ -12,12 +12,12 @@ class Solution:
             if not root:
                 return 0
             
-            left = dfs(root.left)
-            right = dfs(root.right)
+            l_height = dfs(root.left)
+            r_height = dfs(root.right)
 
-            self.diameter = max(self.diameter, left+right)
+            self.diameter = max(self.diameter,l_height+r_height)
 
-            return max(left,right) + 1
-
+            return max(l_height,r_height)+1
+        
         dfs(root)
         return self.diameter

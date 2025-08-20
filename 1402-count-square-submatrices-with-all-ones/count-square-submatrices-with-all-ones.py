@@ -1,23 +1,23 @@
 class Solution:
     def countSquares(self, matrix: List[List[int]]) -> int:
-        rows, cols = len(matrix),len(matrix[0])
-        cache = {}
-
-        def dfs(r,c):
-            if r == rows or c == cols or not matrix[r][c]:
+        rows,cols = len(matrix), len(matrix[0])
+        memo = {}
+        
+        def dfs(i,j):
+            if i >= rows or j >= cols or matrix[i][j] == 0:
                 return 0
-            if (r,c) in cache:
-                return cache[(r,c)]
-
-            cache[(r,c)] = 1 + min(
-                dfs(r + 1, c),
-                dfs(r, c + 1),
-                dfs(r + 1, c + 1)
+            if (i,j) in memo:
+                return memo[(i,j)]
+            memo[(i,j)] = 1 + min(
+                dfs(i+1,j),
+                dfs(i,j+1),
+                dfs(i+1,j+1)
             )
-            return cache[(r,c)]
-
+            return memo[(i,j)]
+        
         res = 0
-        for r in range(rows):
-            for c in range(cols):
-                res += dfs(r,c)
+        for i in range(rows):
+            for j in range(cols):
+                res += dfs(i,j)
+        
         return res

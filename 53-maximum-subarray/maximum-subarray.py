@@ -1,20 +1,33 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
-        res = nums[0]
-        for i in range(1,len(nums)):
-            nums[i] = max(nums[i], nums[i] + nums[i-1])
-            res = max(res, nums[i])
-        return res
-        
-        # total = 0
-        # res = float('-inf')
-        # for num in nums:
-        #     total += num
-        #     res = max(res, total)
+        currentsum = nums[0]
+        maxsum = nums[0]
+        for num in nums[1:]:
+            currentsum = max(num,currentsum+num)
+            maxsum = max(currentsum,maxsum)
+        return maxsum
 
-        #     if total < 0:
-        #         total = 0
 
-        # return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # res = 0
+        # for i in range(len(nums)):
+        #     curr = nums[i]
+        #     j = i + 1
+        #     while curr > 0 and j < len(nums):
+        #         curr += nums[j]
+        #         j += 1
+        #     res = max(res, curr)
+        # print(res)
+            
